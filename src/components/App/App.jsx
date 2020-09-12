@@ -5,6 +5,7 @@ import AppHeader from '../AppHeader';
 import ShoppingList from '../ShoppingList';
 import { Container, Wrapper} from './App.styles';
 import productsMock from '../../mocks/products.json';
+import extractPercentage from '../../utils/extractPercentage';
 
 function App () {
   const colors = ['#62CBC6','#00ABAD','#00858C','#006073','#004D61'];
@@ -50,10 +51,27 @@ function App () {
              
             right = {<div >
                  estatisticas
-                 <LineChart color = {colors[0]} title = "saudavel" percentage = {80}/>
-                  <LineChart color ={colors[1]} title = "nao tao saudavel assim" percentage = {20}/>
-                  <LineChart color ={colors[2]} title = "limpeza"  percentage = {35} />
-                  <LineChart color ={colors[3]} title = "outros" percentage = {15}/>
+                 <LineChart 
+                       color = {colors[0]} 
+                       title = "saudavel"
+                       percentage = {extractPercentage(
+                         selectedProducts.length
+                         ,selectedProducts
+                         .filter(product => product.tags.includes('healthy'))
+                         .length
+                         )}/>
+                 <LineChart 
+                        color ={colors[1]} 
+                        title = "nao tao saudavel assim" 
+                        percentage = {20}/>
+                <LineChart 
+                        color ={colors[2]}
+                         title = "limpeza" 
+                         percentage = {35} />
+                <LineChart
+                         color ={colors[3]}
+                          title = "outros" 
+                         percentage = {15}/>
                     </div>
                     }
           />
