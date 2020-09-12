@@ -63,15 +63,30 @@ function App () {
                  <LineChart 
                         color ={colors[1]} 
                         title = "nao tao saudavel assim" 
-                        percentage = {20}/>
+                          percentage = {extractPercentage(
+                         selectedProducts.length
+                         ,selectedProducts
+                         .filter(product => product.tags.includes('junk'))
+                         .length
+                         )}/>
                 <LineChart 
                         color ={colors[2]}
                          title = "limpeza" 
-                         percentage = {35} />
+                         percentage = {extractPercentage(
+                         selectedProducts.length
+                         ,selectedProducts
+                         .filter(product => product.tags.includes('cleaning'))
+                         .length
+                         )}/>
                 <LineChart
                          color ={colors[3]}
                           title = "outros" 
-                         percentage = {15}/>
+                           percentage = {extractPercentage(
+                         selectedProducts.length
+                         ,selectedProducts
+                         .filter(product => product.tags.includes('others'))
+                         .length
+                         )}/>
                     </div>
                     }
           />
