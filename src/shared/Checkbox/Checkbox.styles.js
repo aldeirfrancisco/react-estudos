@@ -11,8 +11,8 @@ export const Wrapper = styled.div `
 `
 export const Indicator = styled.div `
 
-  height: 14px;
-  width: 14px;
+  height: 10px;
+  width: 10px;
 
   border-radius: 9px;
   ${ props => props.value ? ' background-color: #004D61;' : ''}
